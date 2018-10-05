@@ -1,5 +1,5 @@
 ---
-- hosts: cp-mgmt-server
+- hosts: mgmt-server-azure
   tasks:
   - name: "login"
     check_point_mgmt:
