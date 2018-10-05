@@ -1,5 +1,5 @@
 ---
-- hosts: 172.16.28.4
+- hosts: mgmt-server-azure
   tasks:
   - name: "login"
     check_point_mgmt:
@@ -9,7 +9,6 @@
         password: "{{mgmt_password}}"
         management: "{{mgmt_server}}"
       fingerprint: "{{fingerprint}}"
-      host_key_checking: "{{host_key_checking}}"
     register: login_response
   - name: "add test host"
     check_point_mgmt:
