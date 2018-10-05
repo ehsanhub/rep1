@@ -1,5 +1,5 @@
 ---
-- hosts: mgmt-server-azure
+- hosts: 172.16.28.4
   tasks:
   - name: "login"
     check_point_mgmt:
