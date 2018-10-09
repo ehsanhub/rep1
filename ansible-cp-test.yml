@@ -8,6 +8,7 @@
         username: "{{mgmt_user}}"
         password: "{{mgmt_password}}"
         management: "{{mgmt_server}}"
+        domain: "{{mgmt_domain}}"
       fingerprint: "{{fingerprint}}"
     register: login_response
   - name: "add test host"
@@ -17,7 +18,6 @@
         name: "test-1234abc"
         ip-address: "1.2.3.4"
         color: "red"
-        #domain: "{{mgmt_domain}}"
       session-data: "{{login_response}}"
   - name: "publish"
     check_point_mgmt:
