@@ -104,16 +104,7 @@
           - "Admin-1"
           - "Admin-2"
           - "Admin-3"
-          - "R80.10-Mgmt"
           - "Ansible-Server"
-        color: "gold"
-      session-data: "{{login_response}}"
-  - name: "add Gateways Group Object"
-    check_point_mgmt:
-      command: add-group
-      parameters:
-        name: "CP-Gateways"
-        members: "R80.10-GW-1"
         color: "gold"
       session-data: "{{login_response}}"
   - name: "publish"
