@@ -17,7 +17,7 @@
         name: "test-1234abc"
         ip-address: "1.2.3.4"
         color: "red"
-        domain: "{{mgmt_domain}}"
+        #domain: "{{mgmt_domain}}"
       session-data: "{{login_response}}"
   - name: "publish"
     check_point_mgmt:
