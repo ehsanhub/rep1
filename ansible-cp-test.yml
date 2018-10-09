@@ -22,10 +22,10 @@
         ip-address: "1.1.1.2"
         color: "red"
       session-data: "{{login_response}}"
-  - name: "discard"
-    check_point_mgmt:
-      command: discard
-      session-data: "{{login_response}}"
+  #- name: "discard"
+  #  check_point_mgmt:
+  #    command: discard
+  #    session-data: "{{login_response}}"
   - name: "logout"
     check_point_mgmt:
       command: logout
