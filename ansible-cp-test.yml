@@ -9,7 +9,6 @@
         password: "{{mgmt_password}}"
         management: "{{mgmt_server}}"
       fingerprint: "{{fingerprint}}"
-      domain: "{{mgmt_domain}}"
     register: login_response
   - name: "add test host"
     check_point_mgmt:
@@ -18,6 +17,7 @@
         name: "test-1234abc"
         ip-address: "1.2.3.4"
         color: "red"
+        domain: "{{mgmt_domain}}"
       session-data: "{{login_response}}"
   - name: "publish"
     check_point_mgmt:
