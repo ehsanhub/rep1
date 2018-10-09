@@ -1,5 +1,5 @@
 ---
-- hosts: mgt-server
+- hosts: localhost
   tasks:
   - name: "login"
     check_point_mgmt:
