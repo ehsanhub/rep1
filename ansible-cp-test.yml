@@ -8,11 +8,7 @@
         username: "{{mgmt_user}}"
         password: "{{mgmt_password}}"
         management: "{{mgmt_server}}"
-        #username: "admin"
-        #password: "Checkpoint90"
-        #management: "172.16.28.4"
       fingerprint: "{{fingerprint}}"
-      #fingerprint: "51:F3:E2:D7:B8:2F:CD:6E:99:13:32:A0:77:C5:BE:A9:2D:85:7B:36"
     register: login_response
   - name: "add test host"
     check_point_mgmt:
@@ -22,9 +18,9 @@
         ip-address: "1.2.3.4"
         color: "red"
       session-data: "{{login_response}}"
-  - name: "discard"
+  - name: "publish"
     check_point_mgmt:
-      command: discard
+      command: publish
       session-data: "{{login_response}}"
   - name: "logout"
     check_point_mgmt:
