@@ -5,7 +5,7 @@
     check_point_mgmt:
       command: login
       parameters:
-        username: "ansible"
+        username: "admin"
         password: "Checkpoint90"
         management: "172.16.28.4"
         #username: "{{mgmt_user}}"
@@ -18,8 +18,8 @@
     check_point_mgmt:
       command: add-host
       parameters:
-        name: "test-123abc"
-        ip-address: "1.1.1.2"
+        name: "test-1234abc"
+        ip-address: "1.2.3.4"
         color: "red"
       session-data: "{{login_response}}"
   #- name: "discard"
