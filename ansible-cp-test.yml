@@ -9,6 +9,7 @@
         password: "{{mgmt_password}}"
         management: "{{mgmt_server}}"
       fingerprint: "{{fingerprint}}"
+      domain: "{{mgmt_domain}}"
     register: login_response
   - name: "add test host"
     check_point_mgmt:
