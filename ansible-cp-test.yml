@@ -1,14 +1,18 @@
 ---
-- hosts: 172.16.28.4
+- hosts: mgt-server
   tasks:
   - name: "login"
     check_point_mgmt:
       command: login
       parameters:
-        username: "{{mgmt_user}}"
-        password: "{{mgmt_password}}"
-        management: "{{mgmt_server}}"
-      fingerprint: "{{fingerprint}}"
+        username: "ansible"
+        password: "Checkpoint90"
+        management: "172.16.28.4"
+        #username: "{{mgmt_user}}"
+        #password: "{{mgmt_password}}"
+        #management: "{{mgmt_server}}"
+      #fingerprint: "{{fingerprint}}"
+      fingerprint: "51:F3:E2:D7:B8:2F:CD:6E:99:13:32:A0:77:C5:BE:A9:2D:85:7B:36"
     register: login_response
   - name: "add test host"
     check_point_mgmt:
