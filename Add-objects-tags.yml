@@ -18,7 +18,9 @@
         name: "Src-Machine-Tag1"
         ip-address: "172.16.88.5"
         color: "red"
-        - tags: ["CRQ#1234","added by AnsibleTower"]    
+        tags: 
+        - "CRQ#1234"
+        - "added by AnsibleTower"  
         comment: "CRQ#1234"
       session-data: "{{login_response}}"
   - name: "publish"
