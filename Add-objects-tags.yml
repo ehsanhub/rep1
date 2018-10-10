@@ -21,7 +21,7 @@
         tags: 
         - "CRQ#1234"
         - "added by AnsibleTower"  
-        comment: "CRQ#1234"
+        comments: "CRQ#1234"
       session-data: "{{login_response}}"
   - name: "publish"
     check_point_mgmt:
