@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  tasks:
+  - name: "login"
+    check_point_mgmt:
+      command: login
+      parameters:
+        username: "{{mgmt_user}}"
+        password: "{{mgmt_password}}"
+        management: "{{mgmt_server}}"
+        domain: "{{mgmt_domain}}"
+      fingerprint: "{{fingerprint}}"
+    register: login_response
+  - name: "add test host"
+    check_point_mgmt:
+      command: add-host
+      parameters:
+        name: "Src-Machine-Tag1"
+        ip-address: "172.16.88.5"
+        color: "red"
+        tags: "CRQ#1234"    
+      session-data: "{{login_response}}"
+  - name: "publish"
+    check_point_mgmt:
+      command: publish
+      session-data: "{{login_response}}"
+  - name: "logout"
+    check_point_mgmt:
+      command: logout
+      session-data: "{{login_response}}"
