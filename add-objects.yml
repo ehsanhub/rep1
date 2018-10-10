@@ -15,15 +15,15 @@
     check_point_mgmt:
       command: add-network
       parameters:
-        name: "Management"
-        subnet: "192.168.76.0"
-        mask-length: "24"
+        name: "API_Network1_"
+        subnet: "10.188.0.0"
+        mask-length: "16"
         color: "green"
-        nat-settings:
-          auto-rule: "true"
-          method: "hide"
-          hide-behind: "gateway"
-          method: "hide"
+      #  nat-settings:
+      #    auto-rule: "true"
+      #    method: "hide"
+      #    hide-behind: "gateway"
+      #    method: "hide"
       session-data: "{{login_response}}"
   - name: "add Ansible Server Host Object"
     check_point_mgmt:
