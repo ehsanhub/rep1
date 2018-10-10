@@ -15,13 +15,11 @@
     check_point_mgmt:
       command: add-host
       parameters:
-        name: "Src-Machine-Tag1"
-        ip-address: "172.16.88.5"
-        color: "red"
-        tags: 
-        - "CRQ#1234"
-        - "added by AnsibleTower"  
-        comments: "CRQ#1234"
+        name: "{{object_name}}"
+        ip-address: "{{object_ip}}"
+        color: "{{object_color}}"
+        tags: "{{object_tags}}" 
+        comments: "{{object_comments}}"
       session-data: "{{login_response}}"
   - name: "publish"
     check_point_mgmt:
