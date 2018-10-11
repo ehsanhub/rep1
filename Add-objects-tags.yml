@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  gather_facts: true
   tasks:
   - name: "login"
     check_point_mgmt:
