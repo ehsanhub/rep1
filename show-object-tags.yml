@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  tasks:
+  - name: "login"
+    check_point_mgmt:
+      command: login
+      parameters:
+        username: "{{mgmt_user}}"
+        password: "{{mgmt_password}}"
+        management: "{{mgmt_server}}"
+        domain: "{{mgmt_domain}}"
+      fingerprint: "{{fingerprint}}"
+    register: login_response
+  - name: "show objects with tag"
+    check_point_mgmt:
+      command: show-objects
+      parameters:
+        limit: 50
+        offset: 0
+        order:
+        - DESC: "name"
+        type: "CRQ#4321"
+      session-data: "{{login_response}}"
+  - name: "logout"
+    check_point_mgmt:
+      command: logout
+      session-data: "{{login_response}}"
