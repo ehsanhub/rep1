@@ -18,7 +18,7 @@
       parameters:
         layer: "{{object_layer}}"
         position: "{{object_rule1_position}}"
-        name: "{{object_rule1_name"
+        name: "{{object_rule1_name}}"
         action: "{{object_rule1_action}}"
         destination: "{{object_rule1_desc}}"
         enabled: "true"
@@ -28,22 +28,7 @@
         track:
           type: "Log"
       session-data: "{{login_response}}"
-   - name: "Add Rule2"
-    check_point_mgmt:
-      command: add-access-rule
-      parameters:
-        layer: "{{object_layer}}"
-        position: "{{object_rule2_position}}"
-        name: "{{object_rule2_name"
-        action: "{{object_rule2_action}}"
-        destination: "{{object_rule2_desc}}"
-        enabled: "true"
-        source: "{{object_rule2_source}}"
-        destination: "{{object_rule2_destination}}"
-         service: "{{object_rule2_services}}"
-        track:
-          type: "Log"
-      session-data: "{{login_response}}"
+
       
   - name: "publish this session"
     check_point_mgmt:
