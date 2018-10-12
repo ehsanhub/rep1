@@ -24,7 +24,7 @@
         enabled: "true"
         source: "{{object_rule1_source}}"
         destination: "{{object_rule1_destination}}"
-         service: "{{object_rule1_services}}"
+        service: "{{object_rule1_services}}"
         track:
           type: "Log"
       session-data: "{{login_response}}"
