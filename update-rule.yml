@@ -18,8 +18,9 @@
       parameters:
         layer: "{{object_layer}}"
         name: "{{object_rule1_name}}"
-        source: add
-            "{{object_rule1_source}}"
+        source: 
+          add:
+            - "{{object_rule1_source}}"
 #        destination: "{{object_rule1_destination}}"
 #        service: "{{object_rule1_services}}"
 #        track:
