@@ -26,6 +26,7 @@
 #          type: "Log"
       session-data: "{{login_response}}"
 
+# comment
       
   - name: "publish this session"
     check_point_mgmt:
