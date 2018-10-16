@@ -17,8 +17,8 @@
       command: set-access-section
       parameters:
         layer: "{{object_layer}}"
-        position: "{{object_position}}"
-        name: "{{object_header_name}}"
+        position: "{{header_position}}"
+        name: "{{header_name}}"
       session-data: "{{login_response}}"
       
   - name: "publish this session"
