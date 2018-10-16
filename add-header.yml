@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+  tasks:
+  - name: "login"
+    check_point_mgmt:
+      command: login
+      parameters:
+        username: "{{mgmt_user}}"
+        password: "{{mgmt_password}}"
+        management: "{{mgmt_server}}"
+        domain: "{{mgmt_domain}}"
+      fingerprint: "{{fingerprint}}"
+    register: login_response
+    tags: login
+  - name: "Add section header"
+    check_point_mgmt:
+      command: set-access-section
+      parameters:
+        layer: "{{object_layer}}"
+        position: "{{object_position}}"
+        name: "{{object_position_name}}"
+      session-data: "{{login_response}}"
+      
+  - name: "publish this session"
+    check_point_mgmt:
+      command: publish
+      session-data: "{{login_response}}"
+ # - name: "install policy"
+ #   check_point_mgmt:
+ #     command: install-policy
+ #     parameters:
+ #       policy-package: "standard"
+ #     session-data: "{{login_response}}"
+ #   tags: install
+  - name: "logout"
+    check_point_mgmt:
+      command: logout
+      session-data: "{{login_response}}"
+    tags: logout
