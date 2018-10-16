@@ -1,0 +1,45 @@
+---
+- hosts: localhost
+  tasks:
+  - name: "login"
+    check_point_mgmt:
+      command: login
+      parameters:
+        username: "{{mgmt_user}}"
+        password: "{{mgmt_password}}"
+        management: "{{mgmt_server}}"
+        domain: "{{mgmt_domain}}"
+      fingerprint: "{{fingerprint}}"
+    register: login_response
+    tags: login
+  - name: "Update rule"
+    check_point_mgmt:
+      command: set-access-rule
+      parameters:
+        layer: "{{object_layer}}"
+        name: "{{object_rule1_name}}"
+        source: add
+            "{{object_rule1_source}}"
+#        destination: "{{object_rule1_destination}}"
+#        service: "{{object_rule1_services}}"
+#        track:
+#          type: "Log"
+      session-data: "{{login_response}}"
+
+      
+  - name: "publish this session"
+    check_point_mgmt:
+      command: publish
+      session-data: "{{login_response}}"
+ # - name: "install policy"
+ #   check_point_mgmt:
+ #     command: install-policy
+ #     parameters:
+ #       policy-package: "standard"
+ #     session-data: "{{login_response}}"
+ #   tags: install
+  - name: "logout"
+    check_point_mgmt:
+      command: logout
+      session-data: "{{login_response}}"
+    tags: logout
