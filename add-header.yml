@@ -18,7 +18,7 @@
       parameters:
         layer: "{{object_layer}}"
         position: "{{object_position}}"
-        name: "{{object_position_name}}"
+        name: "{{object_header_name}}"
       session-data: "{{login_response}}"
       
   - name: "publish this session"
