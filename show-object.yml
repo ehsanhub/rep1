@@ -7,7 +7,6 @@
   - name: "login"
     check_point_mgmt:
       command: login
-      when: domain != ""
       parameters:
         username: "{{mgmt_user}}"
         password: "{{mgmt_password}}"
