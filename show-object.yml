@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  gather_facts: true
+  tasks:
+  - name: "login"
+    check_point_mgmt:
+      command: login
+      when: "{{mgmt_domain}}" != ""
+      parameters:
+        username: "{{mgmt_user}}"
+        password: "{{mgmt_password}}"
+        management: "{{mgmt_server}}"
+        domain: "{{mgmt_domain}}"
+      fingerprint: "{{fingerprint}}"
+    register: login_response
+  - name: "add test host"
+    check_point_mgmt:
+      command: show-host
+      parameters:
+        name: "{{object_name}}"
+#        ip-address: "{{object_ip}}"
+#        color: "{{object_color}}"
+#        tags: "{{object_tags}}" 
+#        comments: "{{object_comments}}"
+      session-data: "{{login_response}}"
+      response: response
+#  - name: "publish"
+#    check_point_mgmt:
+#      command: publish
+#      session-data: "{{login_response}}"
+  - name: "logout"
+    check_point_mgmt:
+      command: logout
+      session-data: "{{login_response}}"
