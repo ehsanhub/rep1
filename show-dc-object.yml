@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  gather_facts: true
+  vars:
+    domain: "{{mgmt_domain}}"
+    name: "{{object_name}}"
+  tasks:
+  - name: "login"
+    when: domain != ""
+    check_point_mgmt:
+      command: login
+      parameters:
+        username: "{{mgmt_user}}"
+        password: "{{mgmt_password}}"
+        management: "{{mgmt_server}}"
+        domain: "{{mgmt_domain}}"
+      fingerprint: "{{fingerprint}}"
+    register: login_response
+  - name: "show datacenter object"
+    ignore_errors: True
+    when: name != ""
+    check_point_mgmt:
+      command: show-data-center
+      parameters:
+        name: "{{object_name}}"
+      session-data: "{{login_response}}"
+    register: response1
+  - debug: 
+      var: response1
+#    when: response.failed == True  
+  - name: "logout"
+    ignore_errors: True
+    check_point_mgmt:
+      command: logout
+      session-data: "{{login_response}}"
