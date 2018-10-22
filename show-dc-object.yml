@@ -30,10 +30,10 @@
 #    when: response.failed == True
 #     check_point_mgmt:
 #      command: show-data-center
-   - debug: 
+  - debug: 
       var: response
-      when: response1.failed == True  
-   - name: "logout"
+#      when: response.failed == True  
+  - name: "logout"
     ignore_errors: True
     check_point_mgmt:
       command: logout
