@@ -19,14 +19,10 @@
       command: show-host
       parameters:
         name: "{{object_name}}"
-#        ip-address: "{{object_ip}}"
-#        color: "{{object_color}}"
-#        tags: "{{object_tags}}" 
-#        comments: "{{object_comments}}"
       session-data: "{{login_response}}"
     register: response
   - name: "logout"
     check_point_mgmt:
       command: logout
       session-data: "{{login_response}}"
-  - shell: echo "response"
+  - shell: echo response
