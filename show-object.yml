@@ -14,7 +14,8 @@
         domain: "{{mgmt_domain}}"
       fingerprint: "{{fingerprint}}"
     register: login_response
-  - name: "add test host"
+  - name: "show host"
+    ignore_errors: True
     check_point_mgmt:
       command: show-host
       parameters:
