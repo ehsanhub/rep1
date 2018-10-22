@@ -31,4 +31,4 @@
       command: logout
       session-data: "{{login_response}}"
   - name: "echo register"
-      shell: echo register
+      shell: echo "register"
