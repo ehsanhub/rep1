@@ -25,4 +25,5 @@
     check_point_mgmt:
       command: logout
       session-data: "{{login_response}}"
-  - shell: echo response
+  - debug: 
+      var: response
