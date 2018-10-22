@@ -26,9 +26,5 @@
 #        comments: "{{object_comments}}"
       session-data: "{{login_response}}"
       register: result
-  - name: "logout"
-    check_point_mgmt:
-      command: logout
-      session-data: "{{login_response}}"
-  - name: "echo register"
-      command: echo "register"
+  - shell: echo "register"
+
