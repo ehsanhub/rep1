@@ -3,8 +3,10 @@
   gather_facts: true
   vars:
     domain: "{{mgmt_domain}}"
+    name: "{{object_name}}"
   tasks:
   - name: "login"
+    when: domain != "" 
     check_point_mgmt:
       command: login
       parameters:
@@ -16,6 +18,7 @@
     register: login_response
   - name: "show host"
     ignore_errors: True
+    when: name != ""
     check_point_mgmt:
       command: show-host
       parameters:
