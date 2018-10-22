@@ -24,6 +24,7 @@
     register: response
   - debug: 
       var: response
+      when: response.failed == True  
   - name: "logout"
     check_point_mgmt:
       command: logout
