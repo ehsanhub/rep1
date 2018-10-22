@@ -6,7 +6,7 @@
     name: "{{object_name}}"
   tasks:
   - name: "login"
-    when: domain != "" 
+    when: domain != ""
     check_point_mgmt:
       command: login
       parameters:
