@@ -1,11 +1,13 @@
 ---
 - hosts: localhost
   gather_facts: true
+  vars:
+    domain: "{{mgmt_domain}}"
   tasks:
   - name: "login"
     check_point_mgmt:
       command: login
-      when: mgmt_domain != ""
+      when: domain != ""
       parameters:
         username: "{{mgmt_user}}"
         password: "{{mgmt_password}}"
@@ -28,5 +30,4 @@
       command: logout
       session-data: "{{login_response}}"
   - name: "publish"
-      command: echo "{{response}}"
-      when: "{{response}}" != "EMPTY"
+      command: echo register
