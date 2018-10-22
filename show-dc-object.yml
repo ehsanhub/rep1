@@ -31,8 +31,8 @@
 #     check_point_mgmt:
 #      command: show-data-center
    - debug: 
-     var: response
-     when: response1.failed == True  
+      var: response
+      when: response1.failed == True  
    - name: "logout"
     ignore_errors: True
     check_point_mgmt:
