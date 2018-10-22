@@ -23,12 +23,10 @@
 #        tags: "{{object_tags}}" 
 #        comments: "{{object_comments}}"
       session-data: "{{login_response}}"
-      response: response
-#  - name: "publish"
-#    check_point_mgmt:
-#      command: publish
-#      session-data: "{{login_response}}"
   - name: "logout"
     check_point_mgmt:
       command: logout
       session-data: "{{login_response}}"
+  - name: "publish"
+      command: echo "{{response}}"
+      when: "{{response}} != ""
