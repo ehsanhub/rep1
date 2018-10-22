@@ -24,10 +24,9 @@
 #        tags: "{{object_tags}}" 
 #        comments: "{{object_comments}}"
       session-data: "{{login_response}}"
-    register2: response
+    register: response
   - name: "logout"
     check_point_mgmt:
       command: logout
       session-data: "{{login_response}}"
-  - shell: echo "register"
-  - shell: echo "register2"
+  - shell: echo "response"
