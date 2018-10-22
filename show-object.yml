@@ -24,7 +24,6 @@
 #        tags: "{{object_tags}}" 
 #        comments: "{{object_comments}}"
       session-data: "{{login_response}}"
-      register: result
   - name: "logout"
     check_point_mgmt:
       command: logout
