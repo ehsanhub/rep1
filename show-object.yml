@@ -24,8 +24,9 @@
 #        tags: "{{object_tags}}" 
 #        comments: "{{object_comments}}"
       session-data: "{{login_response}}"
+    show_response: response
   - name: "logout"
     check_point_mgmt:
       command: logout
       session-data: "{{login_response}}"
-  - shell: echo "register"
+  - shell: echo "show_response"
