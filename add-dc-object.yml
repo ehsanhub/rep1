@@ -4,6 +4,7 @@
   vars:
     domain: "{{mgmt_domain}}"
     dcname: "{{object_name}}"
+    dcuri: "{{object_dc_uri}}"
   tasks:
   - name: "login"
     when: domain != ""
@@ -22,9 +23,10 @@
     check_point_mgmt:
       command: add-data-center-object
       parameters:
-        name: "{{object_name}}"
         data-center-name: "AZ_DATACENTER"
         uri: "{{object_dc_uri}}"
+        name: "{{object_name}}"
+        groups: ""
       session-data: "{{login_response}}"
     register: response
 #  - name: "add datacenter object"
