@@ -24,6 +24,7 @@
       parameters:
         name: "{{object_name}}"
         data-center-name: "AZ_DATACENTER"
+        uri: "{{object_dc_uri}}"
       session-data: "{{login_response}}"
     register: response
 #  - name: "add datacenter object"
