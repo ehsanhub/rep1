@@ -24,8 +24,9 @@
       command: add-data-center-object
       parameters:
         data-center-name: "AZ_DATACENTER"
-        uri: "{{object_dc_uri}}"
-        name: "{{object_name}}"
+        uid-in-data-center: "VMsTags/27aee3ac0d9aed87fd826d3153e3f6f93ce8b35382a8d039f9846b824e72886c/47320987f9a49d5b00119b960f247a956773f57543982b8bfcb6da5bb3afd9ef"
+#        uri: "{{object_dc_uri}}"
+#        name: "{{object_name}}"
       session-data: "{{login_response}}"
     register: response
 #  - name: "add datacenter object"
