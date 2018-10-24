@@ -20,9 +20,9 @@
     ignore_errors: True
     when: name != ""
     check_point_mgmt:
-      command: show-data-center-object
-      parameters:
-        name: "{{object_name}}"
+      command: show-data-center-objects
+#      parameters:
+#        name: "{{object_name}}"
       session-data: "{{login_response}}"
     register: response
 #  - name: "add datacenter object"
