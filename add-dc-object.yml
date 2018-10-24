@@ -1,0 +1,41 @@
+---
+- hosts: localhost
+  gather_facts: true
+  vars:
+    domain: "{{mgmt_domain}}"
+    dcname: "{{object_name}}"
+  tasks:
+  - name: "login"
+    when: domain != ""
+    check_point_mgmt:
+      command: login
+      parameters:
+        username: "{{mgmt_user}}"
+        password: "{{mgmt_password}}"
+        management: "{{mgmt_server}}"
+        domain: "{{mgmt_domain}}"
+      fingerprint: "{{fingerprint}}"
+    register: login_response
+  - name: "add datacenter object"
+    ignore_errors: True
+    when: dcname != ""
+    check_point_mgmt:
+      command: add-data-center-object
+      parameters:
+        name: "{{object_name}}"
+        data-center-name: "AZ_DATACENTER"
+      session-data: "{{login_response}}"
+    register: response
+#  - name: "add datacenter object"
+#    ignore_errors: True
+#    when: response.failed == True
+#     check_point_mgmt:
+#      command: show-data-center
+  - debug: 
+      var: response
+#      when: response.failed == True  
+  - name: "logout"
+    ignore_errors: True
+    check_point_mgmt:
+      command: logout
+      session-data: "{{login_response}}"
