@@ -20,7 +20,6 @@
         position: "{{object_rule1_position}}"
         name: "{{object_rule1_name}}"
         action: "{{object_rule1_action}}"
-        destination: "{{object_rule1_desc}}"
         enabled: "true"
         source: "{{object_rule1_source}}"
         destination: "{{object_rule1_destination}}"
