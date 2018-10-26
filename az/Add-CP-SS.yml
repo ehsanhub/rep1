@@ -1,0 +1,67 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    templatelink: "{{ob_templatelink}}"
+  tasks:  
+  - name: Create Check Point Scale Set
+    azure_rm_deployment:
+        state: present
+        resource_group_name: "{{ob_rgname}}"
+        template_link: templatelink
+        parameters:
+          "location":
+            "value": "{{ob_location}}"
+          "cloudGuardVersion":
+            "value": "R80.10 - Bring Your Own License"
+          "instanceCount": 
+            "value": "{{ob_instancecount}}"
+          "maxInstanceCount": 
+            "value": "{{ob_instancemax}}"
+          "managementServer": 
+            "value": "{{ob_mgmtsrv}}"
+          "configurationTemplate":
+            "value": "{{ob_template}}"
+          "adminPassword": 
+            "value": "{{ob_password}}"
+          "authenticationType": 
+            "value": "password"
+          "vmName": 
+            "value": "{{ob_vmname}}"
+          "vmSize": 
+            "value": "{{ob_vmsize}}"
+          "sicKey":
+            "value": "{{ob_sickey}}"
+          "virtualNetworkName":
+            "value": "{{ob_vnetname}}"
+          "virtualNetworkAddressPrefixes":
+            "value": [
+                "{{ob_vnetaddress}}"
+            ]
+          "subnet1Name":
+            "value": "{{ob_extsubnetname}}"
+          "subnet1Prefix":
+            "value": "{{ob_extsubnetprefix}}"
+          "subnet2Name": 
+            "value": "{{ob_intsubnet}}"
+          "subnet2Prefix": 
+            "value": "{{ob_intsubnetprefix}}"
+          "Subnet2StartAddress": 
+            "value": "{{ob_intsubnetstart}}"
+          "vnetNewOrExisting": 
+            "value": "existing"
+          "virtualNetworkExistingRGName": 
+            "value": "{{ob_vnetrgname}}"
+          "allowDownloadFromUploadToCheckPoint": 
+            "value": "true"
+          "instanceLevelPublicIP":
+            "value": "{{ob_pip}}"
+          "ipAddress4mgmt":
+            "value": "private"
+          "diskType":
+            "value": "Standard_LRS"
+          "appLoadDistribution":
+            "value": "Default"
+          "ilbLoadDistribution": 
+            "value": "Default"
