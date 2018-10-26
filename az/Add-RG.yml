@@ -3,6 +3,6 @@
   connection: local
   tasks:
    - name: Create a resource group
-      azure_rm_resourcegroup:
+     azure_rm_resourcegroup:
         name: "Ansible-Deployment"
         location: "canadacentral"
