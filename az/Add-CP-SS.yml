@@ -1,15 +1,15 @@
 ---
 - hosts: localhost
   connection: local
-  gather_facts: true
-  vars:
-    templatelink: "{{ob_templatelink}}"
+#  gather_facts: true
+#  vars:
+#    templatelink: "{{ob_templatelink}}"
   tasks:  
   - name: Create Check Point Scale Set
     azure_rm_deployment:
         state: present
         resource_group_name: "{{ob_rgname}}"
-        template_link: templatelink
+        template_link: "{{ob_templatelink}}"
         parameters:
           "location":
             "value": "{{ob_location}}"
