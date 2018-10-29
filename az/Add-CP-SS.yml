@@ -1,9 +1,7 @@
 ---
 - hosts: localhost
   connection: local
-#  gather_facts: true
-#  vars:
-#    templatelink: "{{ob_templatelink}}"
+  gather_facts: true
   tasks:  
   - name: Create Check Point Scale Set
     azure_rm_deployment:
@@ -65,3 +63,5 @@
             "value": "Default"
           "ilbLoadDistribution": 
             "value": "Default"
+          "ILB_NAME":
+            "value": "{{ob_ilbname}}"
