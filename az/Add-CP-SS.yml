@@ -63,5 +63,5 @@
             "value": "Default"
           "ilbLoadDistribution": 
             "value": "Default"
-          "ILB_NAME":
+          "ilb_Name":
             "value": "{{ob_ilbname}}"
